@@ -171,9 +171,14 @@ height="40" src=
 -->
 
 <a style="text-decoration: none;" href="http://calendar.google.com/">
-<TABLE style="border-bottom-color:green; border-right-color:yellow; border-left-color:red; border-top-color:blue; border-style: solid; border-width: 3pt;" BGCOLOR=WHITE WIDTH=40 HEIGHT=40>
+<TABLE 
+  
+  style="border-bottom-color:green; border-right-color:yellow; border-left-color:#4285F4; border-top-color:#4285F4; border-style: solid; border-width: 5pt;"
+   
+   BGCOLOR=WHITE WIDTH=40 HEIGHT=40>
+  
   <TR>
-    <TD ALIGN=CENTER><SPAN style="color: #4444ff; font-style: normal; font-size: 16pt; font-weight: bold; font-family: Arial, Helvetica, sans-serif;" id="currdate"></SPAN></TD>
+       <TD ALIGN=CENTER><SPAN style="color: #4444ff; font-style: normal; font-size: 14pt; font-weight: normal; font-family: Arial, Helvetica, sans-serif;" id="currdate"></SPAN><TD>
   </TR>
 </TABLE>
 </A>
@@ -296,8 +301,7 @@ name="sa" /></td>
 <a href="http://www.msnbc.com/">MSNBC</a> &bull; 
 <a href="http://www.startribune.com/">StarTribune</a> &bull; 
 <a href="http://www.startribune.com/eedition">e-Edition</A><br />
-<a href="http://www.bringmethenews.com/">Bring Me The News</a> &bull; <a href="http://www.twincities.com/mld/twincities/">Pioneer
-Press</a><br />
+<a href="http://www.bringmethenews.com/">Bring Me The News</a> &bull; <a href="https://cnn.com/">CNN</A> <a href="https://lite.cnn.com/">Lite<br />
 <a href="http://alternet.org/">AlterNet</a> &bull; <a href=
 "http://www.slate.com">Slate</a><br />
 <a href="http://www.wausaudailyherald.com/">Wausau Daily
@@ -650,9 +654,12 @@ Lexicon</a>
 "+1"><b>Games</b></font></a></center>
 <font>
 <A HREF="https://www.crosswordnexus.com/jonesin/">Jonesin' Crosswords</A><BR>
-<A HREF="https://lichess.org/">Lichess<a> &bull; <A HREF="https://www.powerlanguage.co.uk/wordle/">Wordle<a> &bull;
-<A HREF="https://worldle.teuteuf.fr/">Worldle<a> &bull; <A HREF="https://globle-game.com/">Globle<a><BR>
-
+<A HREF="https://lichess.org/">Lichess<a> &bull; 
+<A HREF="https://www.nytimes.com/games/wordle/index.html">Wordle<a> &bull; 
+   <A HREF="https://www.nytimes.com/games/connections">Connections<a> &bull;
+   <A HREF="https://worldle.teuteuf.fr/">Worldle<a> &bull;
+   <A HREF="https://redactle.net/">Redactle<a> <BR>
+<A HREF="http://seansand.appspot.com/dx/cthulhu-archive">Call of Cthulhu - Historical Archive</A><BR>
 <a href="https://tabletopaudio.com/">TT Audio</A><BR>
 <a href=
 "pbem/">Diplomacy</a> links 
@@ -681,15 +688,10 @@ GameFAQs Starcraft II <a href="http://www.gamefaqs.com/boards/939643-starcraft-i
 <a href=
 "http://www.funagain.com">Funagain</a><br />
 <a href="http://www.boardgamegeek.com/">Board Game Geek</a><br />
-<a href="http://www.phial.com/puerto-rico/">Puerto Rico
-Online</a><br /></font></td>
 <td valign="top" width="33%">
 <center><a href="#Top"><font color="#FF8000" size="+1"><b>Generally
 Useful</b></font></a></center>
-<font><a href="http://www.virginmobileusa.com">Virgin
-Mobile</a><br />
-<a href="http://yp.yahoo.com/">Yellow Pages</a>, <a href=
-"http://people.yahoo.com/">White Pages</a><br />
+<font>
 <a href=
 "http://www.twincitiesgasprices.com/">TwinCitiesGasPrices.com</a><br />
 
@@ -744,8 +746,9 @@ long millis = date.getTime();
 // base time 2 is 1599505625418 currentTimeMillis() (2020-09-07, Monday of week 1)
 // base time 3 is 1630910000000 currentTimeMillis() (2021-09-06, Monday of week 1)
 // base time 4 is 1662436800000 currentTimeMillis() (2022-09-05, Monday of week 1)
+// base time 5 is 1693850000000 currentTimeMillis() (2023-09-04, Monday of week 1)
 
-let millsSinceBase = d.getTime() - 1662436800000;
+let millsSinceBase = d.getTime() - 1693850000000;
 const millsInWeek = 604800000;
 let currWeek = Math.ceil(millsSinceBase / millsInWeek)
 document.getElementById("spreadel").setAttribute("href", "http://seansand.appspot.com/spreads?" + currWeek);
