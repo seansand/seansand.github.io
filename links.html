@@ -41,7 +41,9 @@ Random Guy</a></b></nobr></font></td>
 <td width="10%" align="center">
 
 <a href="http://www.weatherforyou.com/weather/minnesota/little+canada.html">
-<img src="http://www.weatherforyou.net/fcgi-bin/hw3/hw3.cgi?config=png&forecast=hourly&alt=hwihourly&place=little+canada&state=mn&country=us&hwvbg=transparent&hwvtc=black&hwvdisplay=" width="175" height="90" border="0" alt="Latest Little Canada, Minnesota, weather"></a>
+<img src="http://www.weatherforyou.net/fcgi-bin/hw3/hw3.cgi?config=png&forecast=hourly&alt=hwihourly&place=little+canada&state=mn&country=us&hwvbg=transparent&hwvtc=black&hwvdisplay=" width="175" height="90" border="0" alt="Latest Little Canada, Minnesota, weather"
+id="lccurr"
+></a>
 
 </td>
 <td width="5%">&nbsp;</td>
@@ -178,7 +180,7 @@ height="40" src=
    BGCOLOR=WHITE WIDTH=40 HEIGHT=40>
   
   <TR>
-       <TD ALIGN=CENTER><SPAN style="color: #4444ff; font-style: normal; font-size: 14pt; font-weight: normal; font-family: Arial, Helvetica, sans-serif;" id="currdate"></SPAN><TD>
+       <TD ALIGN=CENTER><SPAN style="color: #4444ff; font-style: normal; font-size: 14pt; font-weight: normal; font-family: Arial, Helvetica, sans-serif; position: relative; left: 2px;" id="currdate"></SPAN><TD>
   </TR>
 </TABLE>
 </A>
@@ -732,7 +734,9 @@ of Bacon</a><br />
 </table>
 <p></p>
 
+<script src='https://cdnjs.cloudflare.com/ajax/libs/luxon/3.3.0/luxon.min.js'></script>
 <script>
+
 // calculating week for spread.
 
 /* Groovy code to convert date to millis 
@@ -753,6 +757,34 @@ const millsInWeek = 604800000;
 let currWeek = Math.ceil(millsSinceBase / millsInWeek)
 document.getElementById("spreadel").setAttribute("href", "http://seansand.appspot.com/spreads?" + currWeek);
 document.getElementById("currdate").innerHTML = d.getDate();
+
+//Networth.js
+let DateTime = luxon.DateTime;
+
+function printit(year) {
+   const nw = networth(year);
+   const dollars = nw.toLocaleString('en-US', { style: 'currency', currency: 'USD' }).slice(0, -3);
+   year = year.toFixed(4);
+   document.getElementById("lccurr").setAttribute("title", `${year}: ${dollars}`);
+   //console.log(`${year}: ${dollars}`);
+}
+
+function networth(year) {
+   return 871395 * Math.pow(Math.E, 0.119969 * (year - 2016.4));
+}
+
+function getCurrentDecimalDate() {
+   const date = DateTime.now();
+   const startOfYear = DateTime.fromObject({ year: date.year, month: 1, day: 1 });
+   const endOfYear = DateTime.fromObject({ year: date.year + 1, month: 1, day: 1 });
+   const daysInYear = endOfYear.diff(startOfYear, 'days').days;
+   const daysElapsed = date.diff(startOfYear, 'days').days;
+   const decimalYear = date.year + daysElapsed / daysInYear;
+   return decimalYear;
+}
+
+let decimalDate = getCurrentDecimalDate();
+printit(decimalDate);
 
 </script>
 

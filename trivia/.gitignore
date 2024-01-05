@@ -1,0 +1,5 @@
+fancybox.css
+fancybox.js
+node_modules/*
+failures/*
+.vscode/*

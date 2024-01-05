@@ -1,0 +1,50 @@
+body {
+    background-color: darkblue;
+  }
+
+  #title {
+    color: yellow;
+    font-family: sans-serif;
+    font-style: italic;
+    font-size: 21pt;
+  }
+  
+  textarea {
+    font-size: 20px;
+    background-color:gray;
+  }
+
+  p {
+    color: red;
+  }
+
+  .questiontext {
+    background-color: blue;
+    color: white;
+    font-size: 36pt;
+    font-family: sans-serif;
+    text-align: center;
+    width: 800px;
+    height: 500px;
+}
+
+
+  .cell {
+      background-color: blue;
+      color: white;
+      font-size: 36pt;
+      font-family: sans-serif;
+      text-align: center;
+      width: 170px;
+      height: 100px;
+  }
+
+  .catcell {
+    background-color: darkred;  
+    color: white;  
+    font-size: 14pt;
+    font-family: sans-serif;
+    text-align: center;
+    width: 170px;
+    height: 100px;
+}
