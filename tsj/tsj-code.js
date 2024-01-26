@@ -2,29 +2,61 @@
 function openQuestion(event) {
 
     const id = event.target.id;
-    const questionText = getQuestionText(id);
+    var dailyDoubleFlag = false;
+    var questionText;
+    
+    // Give this a nonexistent id if you want no daily double
+    if (id === '40') {
+        dailyDoubleFlag = true;
+        questionText = 'DAILY DOUBLE';
+    }
+    else {
+        questionText = getQuestionText(id);
+    }
 
-    event.target.innerHTML = '<FONT SIZE=-5>' + questionText + '</FONT>';
+    event.target.innerHTML = dailyDoubleFlag ? 
+       '<FONT SIZE=+3>' + questionText + '</FONT>' :
+       '<FONT SIZE=-5>' + questionText + '</FONT>';
 
     var SimpleLightbox = window.SimpleLightbox;
 
     var questionDiv = '';
     questionDiv += '<div class="contentInPopup">';
-    questionDiv += '<table><tr><td class="questiontext">';
+    questionDiv += dailyDoubleFlag ? '<table><tr><td class="dailydouble">' : '<table><tr><td class="questiontext">';
     questionDiv += questionText;
     questionDiv += '</td></tr></table>';
     questionDiv += '</div>';
 
     setTimeout(() => {  
 
+        if (dailyDoubleFlag) {
+           dailyDoubleFlag = false;
+           SimpleLightbox.defaults.afterClose = () => {
+              
+              var ddQuestionDiv = '';
+              ddQuestionDiv += '<div class="contentInPopup">';
+              ddQuestionDiv += '<table><tr><td class="questiontext">';
+              ddQuestionDiv += getQuestionText(id);
+              ddQuestionDiv += '</td></tr></table>';
+              ddQuestionDiv += '</div>';
+              
+              SimpleLightbox.defaults.afterClose = () => {};
+              SimpleLightbox.open({
+                 content: ddQuestionDiv,
+                 elementClass: 'slbContentEl',
+              });
+              closeButtonHack();
+           }
+        }
+
         SimpleLightbox.open({
             content: questionDiv,
             elementClass: 'slbContentEl',
         });
+        
         closeButtonHack();
         blankOut(event);
-
-    }, 500);
+    }, 800);
 
     return;
 }
@@ -37,9 +69,9 @@ function blankOut(event) {
 
 function revertToInit(event) {
 	
-	var rowNumber = event.target.classList[1];
+	 var rowNumber = event.target.classList[1];
     event.target.innerHTML = rowNumber;
-	event.target.style.backgroundColor = "blue";
+	 event.target.style.backgroundColor = "blue";
     return;
 }
 
@@ -64,11 +96,11 @@ document.querySelectorAll('#boardid td').forEach(function (cell) { return cell.a
     //let id: string = td.id;
     var innerHTML = event.target.innerHTML;
     if (innerHTML === "100" || 
-	    innerHTML === "200" ||
-	    innerHTML === "300" ||
-	    innerHTML === "400" ||
-	    innerHTML === "500" || 
-		innerHTML === "1") {
+       innerHTML === "200" ||
+       innerHTML === "300" ||
+       innerHTML === "400" ||
+       innerHTML === "500" || 
+       innerHTML === "1") {
         openQuestion(event);
     }
     if (innerHTML === "?") {
