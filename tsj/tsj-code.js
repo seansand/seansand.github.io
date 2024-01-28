@@ -6,7 +6,7 @@ function openQuestion(event) {
     var questionText;
     
     // Give this a nonexistent id if you want no daily double
-    if (id === '40') {
+    if (id === '35') {
         dailyDoubleFlag = true;
         questionText = 'DAILY DOUBLE';
     }
@@ -116,22 +116,22 @@ function revealCategory(event) {
     
     var innerHTML = event.target.innerHTML;
     if (innerHTML === '<!--1-->') {
-        event.target.innerHTML = 'GEOGRAPHY'
+        event.target.innerHTML = 'MATH'
     }
     else if (innerHTML === '<!--2-->') {
-        event.target.innerHTML = 'ATHLETES'
-    }
-    else if (innerHTML === '<!--3-->') {
-        event.target.innerHTML = 'SPECIAL DAYS'
-    }
-    else if (innerHTML === '<!--4-->') {
         event.target.innerHTML = 'SCIENCE'
     }
+    else if (innerHTML === '<!--3-->') {
+        event.target.innerHTML = 'WORLD STUDIES'
+    }
+    else if (innerHTML === '<!--4-->') {
+        event.target.innerHTML = 'ENGLISH'
+    }
     else if (innerHTML === '<!--5-->') {
-        event.target.innerHTML = "WINGMEN";
+        event.target.innerHTML = "ART & MUSIC";
     }
     else if (innerHTML === '<!--6-->') {
-        event.target.innerHTML = "THAT'S WHAT SHE SAID"
+        event.target.innerHTML = "COMMON KNOWLEDGE"
     }    
     
     event.target.style.backgroundColor = "#003333";
@@ -143,53 +143,54 @@ function getQuestionText(id) {
 
     const questions = {
         
-        // category 1 GEOGRAPHY
+        // category 1 Math
 
-        '00': "This U.S. state is, perhaps surprisingly, geographically nearest the continent of Africa.",
-        '10': "This southernmost point of South America was not named for its shape; that's a coincidence. It was actually named for its Dutch discoverer's home town.",
-        '20': "Radar soundings have shown that this continent actually is a large archipelago, rather than how it's represented on maps. Given its location, it's just hard to tell.",
-        '30': "Only the Nile is longer in length, and by any other measure, this river is the most massive in the world, discharging more than than 200,000 cubic meters per second. That is greater than the next seven largest rivers combined.",
-        '40': "This tiny principality sandwiched between Switzerland and Austria was accidentally invaded in 2007 by 171 Swiss soldiers who got lost in the rain. Fortunately they realized their mistake, marched home, and everything was cool.",
+        '00': "This is the only even prime number.",
+        '10': "Of trillion, centillion, and quintillion, this number is the largest.",
+        '20': "This is 16 percent of 25.",
+        '30': "The ratio of Jenny's trophies to Mia's trophies is 7:4. Jenny has 28 trophies. Mia has this many trophies.",
+        '40': "Your mom is at the market. She bought 22kg of fish and 24kg of chicken. You ate 4kg of chicken and 12kg of fish. This many kilograms was left of the two foods combined.",
                 
-        // category 2 ATHLETES
+        // category 2 Science
 
-        '01': 'When asked how fast this man could run a mile, his agent admitted that he never actually has run a mile. This Jamaican sprinter, "the fastest man in the world", is known for running much shorter distances.',
-        '11': "Rick Ankiel is one of the only two Major League baseball players to win at least 10 games as a pitcher and also hit at least 70 home runs. The other player is this man, who retired in 1935.",
-        '21': 'This center played 20 seasons in the NBA for the Milwaukee Bucks and L.A. Lakers, winning six NBA championships and NBA Finals MVP twice. But more importantly, he played co-pilot Roger Murdock in the 1980 movie "Airplane!"',
-        '31': "According to a BBC poll, Sir Donald Bradman of Australia, Sachin Tendulkar of India, and Sir Garfield Sobers of the West Indies are among the greatest players ever of this sport.",
-        '41': "Becky Sauerbrunn was captain and Abby Wamback was top scorer of this country's team, which are the current champions of the FIFA Women's World Cup.",
+        '01': "This is the largest organ in the human body.",
+        '11': "In eukaryotic cells, the citric acid cycle, also known as the Krebs cycle, takes place in this double-membrane bound organelle, discovered in 1857.",
+        '21': "At this temperature, Celsius and Fahrenheit degrees are the same value.",
+        '31': "This first-person shooter video game developed by Valve and published for Microsoft Windows in 1998 launched a globally successful franchise. The game shares its name with a scientific term frequently used in nuclear physics to describe the instability of atoms.",
+        '41': "The visible phenomenon of fire is the product of a combustion reaction, in which a fuel and an oxidant react to release heat, in addition to these two compounds in gaseous form.",
 
-        // category 3 SPECIAL DAYS
+        // category 3 World studies
 
-        '02': "The first Sunday following the first full moon that occurs on or after the vernal equinox.",
-        '12': "He was assassinated in 44 BCE, on the 15th of March.  But he can't say he wasn't warned.",
-        '22': 'On March 7th, 1815, this man met a battalion of troops sent to capture him. He shouted "Soldiers! Here is your emperor!" and most of the battalion promptly changed sides to join him.',
-        '32': "This event took place on January 15, 1967 in Los Angeles, California.  There have been fifty-four more after that.",
-        '42': "The Medes and the Lydians fought a battle on May 28, 585 BCE, the very earliest event that modern historians know the exact day of, because of this astronomical event that happened during. The combatants took it as a sign and wrote up a hasty peace treaty.",
+        '02': "This is the smallest country in the world in area.",
+        '12': "Austria declared war on this country, which triggered World War I.",
+        '22': 'This conqueror' +"'" + 's name translates to "Emperor of all".',
+        '32': "This country issued the world's first paper money, around the year 1024.",
+        '42': "In 1893, this country was the first to give women the right to vote.",
 
-        // category 4 SCIENCE
+        // category 4 English
 
-        '03': "It is the 46th brightest star in the night sky. However, it's one of the easiest to identify because it always appears in the same location, at least in the northern hemisphere.",
-        '13': "Costing 62.5 trillion dollars per gram, it is by far the most expensive substance on Earth. It can only be generated by particle accelerators and could theoretically be used as fuel for future spacecraft.",
-        '23': "The reason this insect's lifecycle is a prime number is to avoid predation from insects with other yearly cycles. The last brood will next appear in the year 2038.",
-        '33': "Organic gemstones are those that originate from living creatures. There are four main types: jet, originating from coal; amber, originating from ancient pine resin; and two that originate from sea creatures. One is coral, and the other is this.",
-        '43': "It's the Japanese name for the Pleiades star cluster, which appears prominently in the automaker's brand logo with the same name.",
+        '03': 'The line "To be or not to be" comes from which play by Shakespeare?',
+        '13': 'Of the words in this sentence, this one is the adverb: "The old bridge was badly rusted."',
+        '23': "This is the most commonly used letter of the alphabet in the English language.",
+        '33': '"Old news" is an example of one of these, a figure of speech that contains contradictory meanings.',
+        '43': "This man, who died in the year 1400, is considered the father of English literature.",
 
-        // category 5 WINGMEN
+        // category 5 Art and Music
 
-        '04': "Played by Anthony Mackie, this character recently assumed the title of the new Captain America in the Marvel Cinematic Universe.",
-        '14': "He is both literally and figuratively Sheriff Woody's wingman in the Toy Story franchise.",
-        '24': "This character's real name is Warren Worthington III, and was a founding member of the X-Men in Marvel Comics.",
-        '34': "First appearing in Flash Comics #1 in 1940, his real name is Carter Hall and is the Justice League representative for this category.",
-        '44': "In Greek mythology, he was the son of the master craftsman Daedalus. His escape attempt from Crete failed because he flew too close to the sun, which melted the wax holding his wings together.",
+        '04': "This classical composer, who wrote <I>Moonlight Sonata</I>, was famously deaf?",
+        '14': "This 20th century Mexican artist, who painted <I>The Wounded Deer</I>, contracted polio as a child.",
+        '24': "Painter Vincent Van Gogh sold this many paintings in his lifetime.",
+        '34': "Of the four Beatles, this one had dyslexia.",
+        '44': "This musical instrument, invented in 1928, is played by moving one's hands through electromagnetic fields and not actually touching it.",
 
-        // category 6 THAT'S WHAT SHE SAID
 
-        '05': 'This U.S. woman, who first gained national prominence in 1955, said, "All I was doing was trying to get home from work."',
-        '15': 'This world leader said, "In politics, if you want anything said, ask a man. If you want anything done, ask a woman."',
-        '25': 'This scientist said, "I am one of those who think like Nobel, that humanity will draw more good than evil from new discoveries."',
-        '35': 'This patron saint of France said, "One life is all we have and we live it as we believe in living it. But to sacrifice what you are and to live without belief, that is a fate more terrible than dying."',
-        '45': "She said, " + '"' + "Some guy said to me: 'Don't you think you're too old to sing rock n' roll?' I said: 'You'd better check with Mick Jagger.'" + '"'
+        // category 6 Common Knowledge
+
+        '05': "This event first took place on January 15, 1967 in Los Angeles, California.",
+        '15': "The captain of this ill-fated ship was named Edward Smith.",
+        '25': "This is the smallest breed of dog.",
+        '35': "Appearing on a white background, these are the five colors of the rings on the Olympic flag.",
+        '45': "This was the first name of the man who designed the Eiffel Tower.",
 
         // Empty example
 
