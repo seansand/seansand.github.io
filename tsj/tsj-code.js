@@ -169,7 +169,7 @@ function getQuestionText(id) {
 
         // category 4 English
 
-        '03': 'The line "To be or not to be" comes from which play by Shakespeare?',
+        '03': 'The line "To be or not to be" comes from this play by Shakespeare.',
         '13': 'Of the words in this sentence, this one is the adverb: "The old bridge was badly rusted."',
         '23': "This is the most commonly used letter of the alphabet in the English language.",
         '33': '"Old news" is an example of one of these, a figure of speech that contains contradictory meanings.',
@@ -177,7 +177,7 @@ function getQuestionText(id) {
 
         // category 5 Art and Music
 
-        '04': "This classical composer, who wrote <I>Moonlight Sonata</I>, was famously deaf?",
+        '04': "This classical composer, who wrote <I>Moonlight Sonata</I>, was famously deaf.",
         '14': "This 20th century Mexican artist, who painted <I>The Wounded Deer</I>, contracted polio as a child.",
         '24': "Painter Vincent Van Gogh sold this many paintings in his lifetime.",
         '34': "Of the four Beatles, this one had dyslexia.",
