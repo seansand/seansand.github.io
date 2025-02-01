@@ -82,9 +82,9 @@ function getQuestionText(id) {
 
     const questions = {
         
-        // Final Jeopardy
+        // category 1 Math
 
-        '00': "Ramsey County is the smallest county in Minnesota in terms of area. This county is the largest."
+        '00': "This famous television actress grew up in Roseville, Minnesota and graduated from Alexander Ramsey High School, today's RAHS, in 1963."
         // Empty example
 
         //'01': "",
