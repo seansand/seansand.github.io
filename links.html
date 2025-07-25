@@ -664,9 +664,10 @@ Lexicon</a>
 <center><a href="#Top"><font color="#FF8000" size=
 "+1"><b>Games</b></font></a></center>
 <font>
-<A HREF="https://www.crosswordnexus.com/jonesin/">Jonesin' Crosswords</A> &bull;
+<A HREF="https://www.crosswordnexus.com/jonesin/">Jonesin'</A> &bull;
 <A HREF="https://squares.io/">squares.io</A> &bull;
-<A HREF="https://dailycrosswordlinks.com/tag/matt-jones/">PUZ files</A>
+<A id="jzid" HREF="https://herbach.dnsalias.com/Jonesin/jz250619.puz">jz250619.puz</A> &bull;
+<A HREF="https://dailycrosswordlinks.com/tag/matt-jones/">(OG)</A>
 <BR>
 <A HREF="https://lichess.org/">Lichess<a> &bull; 
 <A HREF="https://www.nytimes.com/games/wordle/index.html">Wordle<a> &bull; 
@@ -767,12 +768,34 @@ long millis = date.getTime();
 
 let millsSinceBase = d.getTime() - 1725471637299;
 const millsInWeek = 604800000;
-let currWeek = Math.ceil(millsSinceBase / millsInWeek)
+let currWeek = Math.ceil(millsSinceBase / millsInWeek);
 document.getElementById("spreadel").setAttribute("href", "http://seansand.appspot.com/spreads?" + currWeek);
 document.getElementById("currdate").innerHTML = d.getDate();
+let lastThurs = getLastThursdayYYMMDD();
+document.getElementById("jzid").innerHTML = "jz" + lastThurs + ".puz";
+document.getElementById("jzid").href = "https://herbach.dnsalias.com/Jonesin/jz" + lastThurs + ".puz";
 
 //Networth.js
 let DateTime = luxon.DateTime;
+
+function getLastThursdayYYMMDD() {
+  const today = new Date();
+  let dayOfWeek = today.getDay(); // 0 = Sunday, 1 = Monday, ..., 4 = Thursday, ..., 6 = Saturday
+
+  // Calculate days since last Thursday
+  // If today is Thursday (4), we want the Thursday from last week, so subtract 7
+  // Otherwise, subtract (dayOfWeek - 4) to get to the previous Thursday
+  let daysToSubtract = (dayOfWeek >= 4) ? (dayOfWeek - 4) : (dayOfWeek + 3);
+
+  const lastThursday = new Date(today);
+  lastThursday.setDate(today.getDate() - daysToSubtract);
+
+  const year = lastThursday.getFullYear() % 100; // Get last two digits of year
+  const month = (lastThursday.getMonth() + 1).toString().padStart(2, '0'); // Month is 0-indexed
+  const day = lastThursday.getDate().toString().padStart(2, '0');
+
+  return `${year}${month}${day}`;
+}
 
 function printit(year) {
    const nw = networth(year);
