@@ -255,37 +255,39 @@ document.getElementById("evimage").innerHTML = text
 <tr>
 <td valign="top" width="33%"><a name="News-Sports-Periodic"></a>
 <center><a href="file:///X:/Www/links.html#Top"><font color="red" size="+1"><b>News</b></font></a></center>
-<font><a href="http://www.reuters.com/news">REUTERS</a> &bull; <a href="http://news.google.com/">Google News</a>
-<br>
+<font>
+<A HREF = "http://news.google.com/">Google News</A> &bull;
+<A HREF = "https://www.reuters.com/world/us/">Reuters</A> &bull;
+<A HREF = "https://www.reuters.com/markets/quote/.DJI/">DJIA</A>
+<BR>
 <a href="http://www.msnbc.com/">MSNBC</a> &bull; 
 <a href="https://minnesotareformer.com/">MN Reformer</a> &bull; 
 <a href="http://www.startribune.com/eedition">MST e-Edition</a><br>
 <a href="http://www.bringmethenews.com/">Bring Me The News</a> &bull; <a href="https://cnn.com/">CNN</a> <a href="https://lite.cnn.com/">Lite<br>
 </a><a href="http://alternet.org/">AlterNet</a> &bull; <a href="http://www.slate.com/">Slate</a> &bull; <a href="http://www.axios.com/">Axios</a>
  &bull; <a href="https://apnews.com/">AP News</a><br>
-<a href="http://www.wausaudailyherald.com/">Wausau Daily
-Herald</a><br>
+<a href="http://www.wausaudailyherald.com/">WDH</a> &bull;
 <a href="http://www.intellicast.com/IcastPage/LoadPage.aspx?loc=usmnct22725&amp;seg=LocalWeather&amp;prodgrp=Forecasts&amp;product=Forecast&amp;prodnav=none&amp;pid=none">
-Intellicast.com</a> &bull;
+Intellicast</a> &bull;
 <a href="http://511mn.org/">
-511mn.org</a><br></font></td>
+511mn.org</a><br>
+</font></td>
 <td valign="top" width="34%">
 <center><a href="file:///X:/Www/links.html#Top"><font color="red" size="+1"><b>Sports</b></font></a></center>
 <font>
 <a href="http://seansand.appspot.com/">NNFP Results</a> &bull;
 <a id="spreadel" href="http://seansand.appspot.com/spreads?49">NNFP Spreads</a><br>
-<a href="http://www.jsonline.com/sports/packers/">Packer Plus,</a> <a href="http://www.packersnews.com/">PackersNews.com</a><br>
-<a href="http://www.packerwire.net/">Packer Wire</a> &bull;
+<A href = "https://static.clubs.nfl.com/image/upload/packers/qinhuimddrvrm92cb9vr">Packers 2025</A> &bull; <A HREF="https://fbschedules.com/2025-wisconsin-football-schedule/">Badgers 2025</A><BR>
+<a href="http://www.jsonline.com/sports/packers/">Packer Plus</a> &bull; <a href="http://www.packersnews.com/">PackersNews.com</a> &bull;
 <a href="http://www.jsonline.com/sports/badgers/">Badger
-Plus</a> &bull; <a href="http://www.wtmj.com/listen-live">WTMJ Live</a><br><a href="http://www.sportingnews.com/nfl/">Sporting News</a>,
-<a href="http://football.espn.go.com/nfl/index">ESPN,</a> <a href="http://www.usatoday.com/sports/nfl.htm">USA Today</a><br>
+Plus</a> &bull; <a href="http://www.wtmj.com/listen-live">WTMJ Live</a> &bull; <a href="http://www.sportingnews.com">Sporting News</a> &bull;
+<a href="http://football.espn.go.com/nfl/index">ESPN</a> &bull;
 <a href="http://sports.espn.go.com/nfl/dailylines">Daily Lines</a> &bull;
-<a href="http://www.nfl.com/">NFL.com</a> &bull; <a href="https://projects.fivethirtyeight.com/2021-nfl-predictions/games">538</a> &bull;
-<a href="https://506sports.com/">506 Sports</a>
+<a href="http://www.nfl.com/">NFL.com</a> &bull; <a href="https://506sports.com/">506 Sports</a>
 <br>
-<a href="http://www.fantasyindex.com/">Fantasy Index.com</a> &bull; <a href="http://www.fftoday.com/">FF Today</a><br>
+<a href="http://www.fantasyindex.com/">Fantasy Index.com</a> &bull; <a href="http://www.fftoday.com/">FF Today</a> &bull; 
 <a href="http://www.fantasysharks.com/apps/Remora/lineupcoach.php?league=25943&amp;team=0012&amp;host=football8.myfantasyleague.com">
-Fantasy Sharks</a>, <a href="http://www.rotoworld.com/sports/nfl/football">Rotoworld<br>
+Fantasy Sharks</a> &bull; <a href="http://www.rotoworld.com/sports/nfl/football">Rotoworld<br>
 </a> <a href="http://www.sportslogos.net/">CC's
 Sportslogos.net</a><br>
 <br></font></td>
@@ -657,8 +659,9 @@ long millis = date.getTime();
 // base time 4 is 1662436800000 currentTimeMillis() (2022-09-05, Monday of week 1)
 // base time 5 is 1693850000000 currentTimeMillis() (2023-09-04, Monday of week 1)
 // base time 6 is 1725471637299 currentTimeMillis() (2024-09-02, Monday of week 1)
+// base time 7 is 1756755600000 currentTimeMillis() (2025-09-01, Monday of week 1)
 
-let millsSinceBase = d.getTime() - 1725471637299;
+let millsSinceBase = d.getTime() - 1756755600000;
 const millsInWeek = 604800000;
 let currWeek = Math.ceil(millsSinceBase / millsInWeek);
 document.getElementById("spreadel").setAttribute("href", "http://seansand.appspot.com/spreads?" + currWeek);
