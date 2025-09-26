@@ -1,10 +1,24 @@
-<HTML><HEAD><TITLE>Work Links</TITLE>
-<LINK REL="SHORTCUT ICON" HREF="favicon.ico">
-<STYLE>
+<HTML>
+  <HEAD>
+  <meta charset="UTF-8">
+  <TITLE>Work Links</TITLE>
+  <LINK REL="SHORTCUT ICON" HREF="favicon.ico">
+  <STYLE>
     li {
         font-size: 11pt;
     }
-</STYLE>
+	
+    tr.PROD {
+      background-color: pink;
+    }
+	tr.QA {
+      background-color: #e3cc00;
+    }	
+	tr.localhost {
+      background-color: #BBBBBB;
+    }
+	
+  </STYLE>
 
 </HEAD>
 <BODY TEXT="#000000" 
@@ -99,47 +113,69 @@ ALERT.CLIENT.ALERTROOM.WLN.DEMO<BR>
    </STRONG>
 
    <BR>
-   cloud-tool --region us-east-1 login<BR><A HREF="file:///i:/projectx/tunnel-for-db-connection.html">tunnel to db/es info</A> 
+   cloud-tool --region us-east-1 login<BR>
+   <!-- <A HREF="file:///i:/projectx/tunnel-for-db-connection.html">tunnel to db/es info</A> 
  &bull; <A HREF="file:///c:/i/projectx/tunnel-for-logs.html">tunnel to logs</A> &bull; 
    <A HREF="https://thehub.thomsonreuters.com/docs/DOC-2638822">tunnel to DB stage</A>
-   <BR>
-      
-   <P><STRONG>
-   <A HREF="https://tools-projectx-main-ci.tr-legal-nonprod.aws-int.thomsonreuters.com/home">Panoramic Tools CI</A></STRONG>
-   <A HREF="https://tools-main-infra.tr-legal-nonprod.aws-int.thomsonreuters.com/home">Panoramic Infra</A></STRONG><BR>
-   
+   <BR> -->
 
- <BR>
- <TABLE CELLPADDING=5 BORDER=1 BGCOLOR="#CC9999"><TR><TD>
- <FONT SIZE=-1>
- <A HREF="https://thehub.thomsonreuters.com/docs/DOC-2362051">Prod Support Overview</A> &bull; 
- <A HREF="https://thehub.thomsonreuters.com/docs/DOC-2684814">Prod Support Issues Hub</A><BR>
- <A HREF="http://pager.int.thomson.com/rotation.php?groups=2384&Session=2ba80ec3ea008702235b9e75ade3e1c7">Pager List</A> &bull; <A HREF="https://thehub.thomsonreuters.com/docs/DOC-2566113">Rotation Schedule</A> &bull;
- 
- <A HREF="https://thehub.thomsonreuters.com/docs/DOC-2711034">Tools &amp; dashboard links</A><BR><BR>
- <B><A HREF="https://thehub.thomsonreuters.com/docs/DOC-1801978">CNO TOOLS</A> &mdash;
- Kibana 
- <A HREF="https://tools-projectx-main-ci.tr-legal-nonprod.aws-int.thomsonreuters.com/app/kibana">CI</A>
- &bull; 
- <A HREF="https://tools-projectx-main-qa.tr-legal-nonprod.aws-int.thomsonreuters.com/app/kibana">QA</A> 
- &bull; 
- <A HREF="https://tools-projectx-main-stage.tr-legal-prod.aws-int.thomsonreuters.com/app/kibana">Stage</A>
- &bull; 
- <A HREF="https://tools-projectx-main-prod.tr-legal-prod.aws-int.thomsonreuters.com/app/kibana">Prod</A>
- &bull; 
- <A HREF="https://tools-projectx-main-prod-euw1.tr-legal-prod.aws-int.thomsonreuters.com/app/kibana">Prod-EU</A>
- </B><BR><BR>
- <A HREF="https://tools-projectx-main-stage.tr-legal-prod.aws-int.thomsonreuters.com/deploydash/index.html">Prod/Stage Deploys</A> &bull; <A HREF="https://tools-projectx-main-ci.tr-legal-nonprod.aws-int.thomsonreuters.com/deploydash/index.html">CI/QA Deploys</A><BR>
- <A HREF="https://tools-projectx-main-ci.tr-legal-nonprod.aws-int.thomsonreuters.com/es-tool/kblogginga-projectx-main-ci/app/kibana#/dashboard/Audit-Dashboard?_g=(refreshInterval:(display:Off,pause:!f,value:0),time:(from:now-30d,mode:quick,to:now))&_a=(description:%27%27,filters:!(),options:(darkTheme:!f),panels:!((col:1,id:%27Audit:-Results-Table%27,panelIndex:5,row:13,size_x:12,size_y:8,type:visualization),(col:1,id:%27Audit:-Discrepancies-Found-Or-Not-Bar-Chart%27,panelIndex:6,row:8,size_x:12,size_y:5,type:visualization),(col:1,id:%27Audit:-Audit-Runs-Bar-Chart%27,panelIndex:7,row:3,size_x:12,size_y:5,type:visualization),(col:1,id:%27Audit:-Discrepancies-By-Service-and-Data-Store-Pie-Charts%27,panelIndex:8,row:1,size_x:12,size_y:2,type:visualization)),query:(query_string:(analyze_wildcard:!t,query:%27*%27)),timeRestore:!t,title:%27Audit%20Dashboard%27,uiState:(P-1:(vis:(params:(sort:(columnIndex:1,direction:asc)))),P-5:(vis:(params:(sort:(columnIndex:7,direction:desc))))),viewMode:view)">Audit Dashboard</A>
- 
- </FONT>
- </TD></TR></TABLE>
- 
- 
+   </FONT>
 
-   
-   </FONT></TD>
+<BR>
 
+<B>CARI Dashboard</B>
+<table border=1 CELLPADDING=4 id="dashboard">
+  <thead>
+  </thead>
+  <tbody></tbody>
+</table>
+
+<script>
+  const services = ['ai-assisted-legal-research', 'cari-cobalt-apis', 'guided-research', 'know-your-judge'];
+  const serviceMap = {'ai':'AAR', 'cari':'C-APIS', 'guided':'GR', 'know':'KYJ'}
+  const environments = {
+    localhost: 'http://localhost:8080',
+    CI: 'https://{svc}-ci.plexus-cari-ppuse1.97328.aws-int.thomsonreuters.com',
+    INT: 'https://{svc}-int.plexus-cari-ppuse1.97328.aws-int.thomsonreuters.com',
+    QA: 'https://{svc}-qa.plexus-cari-ppuse1.97328.aws-int.thomsonreuters.com',
+    PROD: 'https://{svc}.plexus-cari-use1.79110.aws-int.thomsonreuters.com'
+  };
+
+  const tableBody = document.querySelector('#dashboard tbody');
+
+  Object.entries(environments).forEach(([env, baseUrl]) => {
+    const row = document.createElement('tr');
+    row.classList.add(env);
+	
+    const envCell = document.createElement('td');
+    envCell.innerHTML = env === 'localhost' ? '<i>localhost</i>' : `<b>${env}</b>`;
+    row.appendChild(envCell);
+
+    services.forEach(service => {
+      const cell = document.createElement('td');
+      const svcPath = service.includes('cari') ? service : `skill/${service}`;
+      const swaggerUrl = baseUrl.replace('{svc}', service) + `/${svcPath}/swagger-ui/index.html`;
+      const healthUrl = baseUrl.replace('{svc}', service) + `/${svcPath}/actuator/health/liveness`;
+
+      cell.innerHTML = `<a href="${swaggerUrl}" target="_blank">${serviceMap[service.split('-')[0]]}</a> &bull;
+                        <a href="${healthUrl}" target="_blank">A</a>`;
+      row.appendChild(cell);
+    });
+
+    tableBody.appendChild(row);
+  });
+</script>
+
+
+<BR>
+<STRONG>Content Console</STRONG><BR>
+<A HREF="https://contentconsole-qa.int.thomsonreuters.com/">https://contentconsole-qa.int.thomsonreuters.com/</A><BR>
+<A HREF="https://contentconsole.thomsonreuters.com/">https://contentconsole.thomsonreuters.com/</A>
+
+
+
+
+</TD>
 <TD VALIGN=TOP WIDTH=25%>
 <!-- ROW 1 COL 2 -->
 
@@ -147,7 +183,8 @@ ALERT.CLIENT.ALERTROOM.WLN.DEMO<BR>
 <A HREF="https://opslinks.thomsonreuters.com/src/OpsLinks.html">OpsLinks</A>
 <A HREF="http://legalsharedopslinks.int.thomsonreuters.com/OpsLinks.html">(OG)</A> &bull;
 <A HREF="https://trten.sharepoint.com.mcas.ms/sites/cobaltsupport/Links%20Wiki/Home.aspx">Support Links</A><BR>
-<A HREF="https://iga.int.thomsonreuters.com/accessRequest/accessRequest.jsf">SailPoint (access requests)</A>
+<A HREF="https://iga.int.thomsonreuters.com/accessRequest/accessRequest.jsf">SailPoint (access requests)</A><BR>
+<A HREF="https://thomsonreuters.service-now.com/incident.do?sys_id=-1">Create generic ServiceNow incident</A> (service-now, SNOW)
 </FONT>
 <BR>
 
@@ -206,10 +243,14 @@ Cobalt:
    <TABLE BORDER=0><TR><!--<TD>
    <BR><A HREF="https://tr-contentandresearch-prod.datadoghq.com/apm/home">WL&nbsp;PROD&nbsp;&amp;&nbsp;QA</A>
    </TD>--><TD>&nbsp;&#128054;&nbsp;</TD><TD>
-   (F0038026)<BR><A HREF="https://tr-fed-contentandresearch-prod.ddog-gov.com/account/login/">All WESTLAW envs</A>
-   <BR>
+   (F0038026)<BR><A HREF="https://tr-fed-contentandresearch-prod.ddog-gov.com/account/login/">WESTLAW envs</A>
+   &nbsp;&bull;&nbsp;
    <A HREF="https://tr-contentandresearch-preprod.datadoghq.com/">CARI envs</A>
-   
+   <BR><BR>
+   <A HREF="https://tr-contentandresearch-preprod.datadoghq.com/dashboard/8cz-6s4-nd8?fromUser=false&graphType=waterfall&historicalData=true&refresh_mode=sliding&shouldShowLegend=true&spanViewType=errors&traceQuery=&from_ts=1756394429648&to_ts=1756480829648&live=true">CARI preprod dashboard</A><BR>
+   <A HREF= "https://tr-contentandresearch-prod.datadoghq.com/dashboard/gef-fa3-f4s?fromUser=false&graphType=waterfall&historicalData=true&index=%2A&refresh_mode=sliding&shouldShowLegend=true&traceQuery=&from_ts=1756477831056&to_ts=1756481431056&live=true">CARI prod dashboard</A><BR>
+   env:qa service:guided-research @userGUID:{guid}<BR>
+   env:qa service:guided-research @http.request.headers.x-cobalt-session-id:{sessionId}
    </TD></TABLE>
    <!--
    <A HREF="https://tr-contentandresearch-prod.datadoghq.com/apm/home">tr-contentandresearch-prod (WL QA &amp; Prod)</A><BR>&nbsp;
@@ -362,6 +403,7 @@ Select <I>Westlaw</i> product
 </TD><TD>
 <A HREF="https://github.com/tr/cari-skill_ai-assisted-legal-research">ai-assisted-legal-research</A><BR>
 <A HREF="https://github.com/tr/cari-skill_guided-research">guided-research</A><BR>
+<A HREF="https://github.com/tr/cari-skill_know-your-judge">know-your-judge</A><BR>
 <A HREF="https://github.com/tr/cari-skill_spring-cross-cutting">spring-cross-cutting</A><BR>
 <A HREF="https://github.com/tr/cari_cobalt-apis">cobalt-apis</A><BR>
 <A HREF="https://github.com/tr/cari_java-shared-lib/tree/main/http-client">http-client</A>
@@ -420,7 +462,10 @@ Cobalt Product Backlog &mdash;to&mdash;> Legal Product Backlog<BR>
 <UL>
 <LI><A HREF="https://trten.sharepoint.com/sites/CobaltCommunityCoordinators/SitePages/Cobalt-Platform-Java-Module-Standard-Setup.aspx">NEWEST Java setup</A>
 <!--<LI><A HREF="https://trten.sharepoint.com/sites/intr-legal-cobalt-platform/SitePages/Cobalt-Platform-Java-Module-Standard-Setup.aspx?xsdata=MDV8MDF8fGExYTdjMjY3YWIzMzQ1ZmRkNDEwMDhkYTFlMTJiZWQ3fDYyY2NiODY0NmExYTRiNWQ4ZTFjMzk3ZGVjMWE4MjU4fDB8MHw2Mzc4NTUzNjMwODY0MDY2NzJ8R29vZHxWR1ZoYlhOVFpXTjFjbWwwZVZObGNuWnBZMlY4ZXlKV0lqb2lNQzR3TGpBd01EQWlMQ0pRSWpvaVYybHVNeklpTENKQlRpSTZJazkwYUdWeUlpd2lWMVFpT2pFeGZRPT18MXxNVGs2WXprM1pURmhOR1l0TkdNeE1TMDBORGczTFdKaU5URXROV0prT0RRMk5ESmlNRFprWDJZd1ltTmtNR0l3TFRKalpUUXROREUzWlMxaVl6VXpMVEUzTkRGa1ptWXhaalU1TUVCMWJuRXVaMkpzTG5Od1lXTmxjdz09fHw%3D&sdata=ZkpWemwxbXlzZW9oQ2d1MVFZbFFKZ0JFR2pRTCtEaDQ1Uzh4bUFiZFFBND0%3D&ovuser=62ccb864-6a1a-4b5d-8e1c-397dec1a8258%2Csean.sandquist%40thomsonreuters.com">Java setup new</A>-->
+<LI><A HREF="https://trten.sharepoint.com.mcas.ms/sites/intr-github-community-of-practice/SitePages/Use-Personal-Access-Tokens-with-GitHub.aspx">Setting up Personal Access Token with Github</A>
+<LI><A HREF="https://techtoc.thomsonreuters.com/non-functional/security/supply-chain-security/source-code-signing/">Source Code Signing</A> (Windows Certmgr.msc)
 <LI><A HREF="https://trten.sharepoint.com/:w:/r/sites/LegalCobaltPlatformSearchCommunity/_layouts/15/Doc.aspx?sourcedoc=%7BEAF1ADB6-7A0D-4FAD-92C9-97888DE08D17%7D&file=Developer%20Guide%20for%20Search%20Development.docx&action=default&mobileredirect=true&CID=4AC4FAA8-1F16-4014-A321-78783219F01C&wdLOR=c2677104D-3022-40BA-B5F7-F22DC2AB2D22">2023 Search setup</A>
+<LI><A HREF="https://trten.sharepoint.com.mcas.ms/:w:/r/sites/LegalCobaltRelatedInformationTech/_layouts/15/Doc.aspx?sourcedoc=%7B7C70BD79-3221-4165-855E-0628260E44E4%7D&file=Related_Info.docx&action=default&mobileredirect=true">2025 RI setup</A>
 <LI><A HREF="https://thehub.thomsonreuters.com/docs/DOC-1107512">HistoryPlatform/Listener setup</A>
 <LI><A HREF="https://thehub.thomsonreuters.com/docs/DOC-953918">RO setup</A> &bull;
     <STRIKE><A HREF="http://techwiki.int.thomsonreuters.com/wiki/index.php/Java_developer_startup_instructions_(WestlawNext)">Search setup</A></STRIKE>
@@ -451,11 +496,13 @@ WestlawNext-CI-CB900006
 <LI><A HREF="https://urldefense.com/v3/__https://quicksight.aws.amazon.com/sn/start?directory_alias=tr-legal-nonprod__;!!GFN0sa3rsbfR8OLyAw!Zm5R1v8tgq7SNjoZAu-rlRdsVJsr0GxKgA11Yx8Xma9Pr3RW7JuInrQadpd_IHCJ3r5IQQIKDdSuY_qCSC3WPXM9is2ieNn7$">QuickSight</A> (use incognito, must use <B>this</B> URL)<BR><BR>
 <LI><A HREF="https://dev.azure.com/TR-Legal-Cobalt/Legal%20Cobalt%20Backlog/_boards/board/t/Westlaw%20US%20-%20Dahl/Stories">All Dahl stories</A>
 <LI><A HREF="https://dev.azure.com/TR-Legal-Cobalt/Legal%20Cobalt%20Backlog/_workitems/assignedtome/">Legal Cobalt Backlog&mdash;Sean's OPEN</A>
+<LI><A HREF="https://dev.azure.com/TR-Legal-Cobalt/Legal%20Cobalt%20Backlog/_queries/query/60800a8a-6e69-43ea-9fb1-bb501c7df40f/">
+Know Your Judge Epic</A>
 <LI><A HREF="https://dev.azure.com/TR-Legal-Cobalt/Legal%20Cobalt%20Backlog/_sprints/taskboard/WLUS/Legal%20Cobalt%20Backlog">WLUS</A>
 <LI><A HREF="https://dev.azure.com/TR-Legal-Cobalt/Legal%20Cobalt%20Backlog/_sprints/taskboard/WLUS%20AAR/Legal%20Cobalt%20Backlog">WLUS AAR</A>
 <LI><A HREF="https://dev.azure.com/TR-Legal-Cobalt/Legal%20Cobalt%20Backlog/_sprints/taskboard/WLUS%20ResearchSkills/Legal%20Cobalt%20Backlog">WLUS ResearchSkills</A>
 <LI><A HREF=""></A>
-<LI><A HREF=""></A>
+
 
 
 <!--
@@ -654,6 +701,7 @@ CLEAR Releases<UL>
    <A HREF="https://easelro-novus-client-use1.67223.aws-int.thomsonreuters.com/easel/">Easel Product Only - CLIENT</A><BR>
    <A HREF="https://easelro-novus-prod-use1.67223.aws-int.thomsonreuters.com/easel/">Easel Product Only - PROD</A><BR>
    (verified MetaDoc access works)<BR>
+   <A HREF="https://content-access-qa.plexus-ras2-ppuse1.5771.aws-int.thomsonreuters.com/swagger-ui/index.html#/">RAS Novus API<
    
    <BR><BR>
    <A HREF="http://sonar.pe.int.thomsonreuters.com/">Sonarqube</A><BR><BR>
