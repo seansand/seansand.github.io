@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Elizabeth Senior Photos</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      text-align: center;
+    }
+
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .photo-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border-radius: 8px;
+      background-color: #fff;
+      padding: 10px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .photo-container img {
+      max-width: 300px;
+      height: auto;
+      border-radius: 4px;
+    }
+
+    .caption {
+      margin-top: 8px;
+      font-size: 14px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <h1>Elizabeth Senior Photos</h1>
+  <div class="gallery" id="gallery"></div>
+
+  <script>
+const photos = [
+      "DSC04221.jpg",
+      "DSC04225.jpg",
+      "DSC04239 3.jpg",
+      "DSC04255.jpg",
+      "DSC04296.jpg",
+      "DSC04300.jpg",
+      "DSC04309.jpg",
+      "DSC04347.jpg",
+      "DSC04357.jpg",
+      "DSC04368.jpg",
+      "DSC04396.jpg",
+      "DSC04452 4.jpg",
+      "DSC04496.jpg",
+      "DSC04527.jpg",
+      "DSC04613 2.jpg",
+      "DSC04619 9.jpg",
+      "DSC04626.jpg",
+      "DSC04668.jpg",
+      "DSC04689 5.jpg",
+      "DSC04713 5.jpg",
+      "DSC04752.jpg",
+      "DSC04764.jpg",
+      "DSC04798.jpg",
+      "DSC04837 2.jpg",
+      "DSC04857.jpg",
+      "DSC04867 2.jpg",
+      "DSC04879 2.jpg",
+      "DSC04887.jpg",
+      "DSC05004-2.jpg",
+      "DSC05091.jpg",
+      "DSCX0310-A.jpg",
+      "DSCX0314-B.jpg",
+      "DSCX0320-B.jpg" 
+    ];
+
+    function seededRandom(seed) {
+      let value = seed;
+      return function() {
+        value = (value * 9301 + 49297) % 233280;
+        return value / 233280;
+      };
+    }
+
+    function shuffle(array, seed) {
+      const random = seededRandom(seed);
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+      return array;
+    }
+
+    const shuffledPhotos = shuffle([...photos], 12345);
+
+    const gallery = document.getElementById("gallery");
+    shuffledPhotos.forEach(photo => {
+      const container = document.createElement("div");
+      container.className = "photo-container";
+
+      const img = document.createElement("img");
+      img.src = `photos/${photo}`;
+      img.alt = photo;
+
+      const caption = document.createElement("div");
+      caption.className = "caption";
+      caption.textContent = photo;
+
+      container.appendChild(img);
+      container.appendChild(caption);
+      gallery.appendChild(container);
+    });
+  </script>
+</body>
+</html>
+
+<!--
+DSC04221.jpg
+DSC04225.jpg
+DSC04239 3.jpg
+DSC04255.jpg
+DSC04296.jpg
+DSC04300.jpg
+DSC04309.jpg
+DSC04347.jpg
+DSC04357.jpg
+DSC04368.jpg
+DSC04396.jpg
+DSC04452 4.jpg
+DSC04496.jpg
+DSC04527.jpg
+DSC04613 2.jpg
+DSC04619 9.jpg
+DSC04626.jpg
+DSC04668.jpg
+DSC04689 5.jpg
+DSC04713 5.jpg
+DSC04752.jpg
+DSC04764.jpg
+DSC04798.jpg
+DSC04837 2.jpg
+DSC04857.jpg
+DSC04867 2.jpg
+DSC04879 2.jpg
+DSC04887.jpg
+DSC05004-2.jpg
+DSC05091.jpg
+DSCX0310-A.jpg
+DSCX0314-B.jpg
+DSCX0320-B.jpg
+
+-->
