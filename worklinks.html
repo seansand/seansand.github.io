@@ -131,8 +131,8 @@ ALERT.CLIENT.ALERTROOM.WLN.DEMO<BR>
 </table>
 
 <script>
-  const services = ['ai-assisted-legal-research', 'cari-cobalt-apis', 'guided-research', 'know-your-judge'];
-  const serviceMap = {'ai':'AAR', 'cari':'C-APIS', 'guided':'GR', 'know':'KYJ'}
+  const services = ['ai-assisted-legal-research', 'litigation-drafting', 'cari-cobalt-apis', 'guided-research', 'know-your-judge'];
+  const serviceMap = {'ai':'AAR', 'litigation':'LD', 'cari':'C-APIS', 'guided':'GR', 'know':'KYJ'}
   const environments = {
     localhost: 'http://localhost:8080',
     CI: 'https://{svc}-ci.plexus-cari-ppuse1.97328.aws-int.thomsonreuters.com',
@@ -157,8 +157,8 @@ ALERT.CLIENT.ALERTROOM.WLN.DEMO<BR>
       const swaggerUrl = baseUrl.replace('{svc}', service) + `/${svcPath}/swagger-ui/index.html`;
       const healthUrl = baseUrl.replace('{svc}', service) + `/${svcPath}/actuator/health/liveness`;
 
-      cell.innerHTML = `<a href="${swaggerUrl}" target="_blank">${serviceMap[service.split('-')[0]]}</a> &bull;
-                        <a href="${healthUrl}" target="_blank">A</a>`;
+      cell.innerHTML = `<B><a href="${swaggerUrl}" target="_blank">${serviceMap[service.split('-')[0]]}</a></B> 
+                        <BR>&nbsp;(<a href="${healthUrl}" target="_blank">up?</a>)&nbsp;`;
       row.appendChild(cell);
     });
 
@@ -184,7 +184,12 @@ ALERT.CLIENT.ALERTROOM.WLN.DEMO<BR>
 <A HREF="http://legalsharedopslinks.int.thomsonreuters.com/OpsLinks.html">(OG)</A> &bull;
 <A HREF="https://trten.sharepoint.com.mcas.ms/sites/cobaltsupport/Links%20Wiki/Home.aspx">Support Links</A><BR>
 <A HREF="https://iga.int.thomsonreuters.com/accessRequest/accessRequest.jsf">SailPoint (access requests)</A><BR>
-<A HREF="https://thomsonreuters.service-now.com/incident.do?sys_id=-1">Create generic ServiceNow incident</A> (service-now, SNOW)
+<A HREF="https://thomsonreuters.service-now.com/incident.do?sys_id=-1">Create generic ServiceNow incident</A>
+(service-now, SNOW)
+<A HREF="https://trenterprise.service-now.com/esc?id=sc_cat_item&sys_id=08d1f8c32f14f21025fbd44bcfa4e3ec&table=sc_cat_item&searchTerm=ServiceNow%20ticket%20to%20a%20known%20group">ServiceNow ticket to a Known Group</A>
+<!--
+<A HREF="https://thomsonreuters.service-now.com/sp?id=sc_cat_item&sys_id=71bb146613e67a009c89b53a6144b0eb">ServiceNow ticket to a Known Group</A> (more useful)-->
+
 </FONT>
 <BR>
 
@@ -226,10 +231,14 @@ Cobalt:
 -->
 <A HREF="https://mytime.thomsonreuters.com/mytime/MyTimeHome.htm">MyTime</A> &bull; 
 <A HREF="https://wd5.myworkday.com/thomsonreuters/login.flex">Workday</A> &bull;
+<A HREF="https://wd5.myworkday.com/thomsonreuters/d/inst/13102%21CK5mGhIKBggDEMenAhIICgYI1A0QoAg~%2aqFTzXhzZUdg~/cacheable-task/23748$66.htmld#backheader=true&TABINDEX=0">Workday Hub</A> &bull;
 <A HREF = "http://www.appreciatehub.com/thomsonreuters">Appreciate</A> &bull;
 <A HREF="https://thomsonreuters.conciergelive.com/start">Concierge</A><BR><BR>
 <A HREF="https://www.microsoft.com/en-us/microsoft-365/onedrive/online-cloud-storage">OneDrive Online</A> &bull;
-<A HREF="https://trten.sharepoint.com.mcas.ms/sites/CobaltCommunityCoordinators/SitePages/Cobalt%20GitHub%20Community%20Guidelines.aspx">Cobalt GitHub</A><BR><BR>
+<A HREF="https://trten.sharepoint.com.mcas.ms/sites/CobaltCommunityCoordinators/SitePages/Cobalt%20GitHub%20Community%20Guidelines.aspx">Cobalt GitHub</A> &bull; 
+<A HREF="https://preci.thomsonreuters.com/">https://preci.thomsonreuters.com/</A>
+
+<BR><BR>
 <!--
 <A HREF="https://thehub.thomsonreuters.com/docs/DOC-2668567">NEW MYEXPENSES</A> &bull;
 <A HREF="https://thehub.thomsonreuters.com/groups/my-expenses">MyExpenses</a><BR><BR>
@@ -268,7 +277,7 @@ Cobalt:
    </TD></TR></TABLE>
 <BR>   
 <A HREF="https://scheduler-scale-test.tr-legal-nonprod.aws-int.thomsonreuters.com/reports">https://scheduler-scale-test.tr-legal-nonprod.aws-int.thomsonreuters.com/reports</A><BR>
-Date range of interest under <I>Storage Filter</I>oba &bull;
+Date range of interest under <I>Storage Filter</I> &bull;
 Select <I>Westlaw</i> product
 <BR><BR>
 
@@ -276,12 +285,13 @@ Select <I>Westlaw</i> product
 <BR>
 <A HREF="https://trten.sharepoint.com.mcas.ms/:w:/r/sites/intr-ltio-cm-operations-and-support/_layouts/15/doc2.aspx?sourcedoc=%7B51C91765-5A59-461C-814D-970DFB16A438%7D&file=CMDB%20Legal%20Change%20Request%20Instructions.docx&action=default&mobileredirect=true&DefaultItemOpen=1&CID=977B2A31-CAD6-46D3-8E52-A22277E5BBAD&wdLOR=c143DA2BA-6377-4348-8652-A327402D5D19"><I>Instructions</I></A>
 <BR><BR>
+<TABLE BORDER=0><TR><TD>
 <TABLE BORDER=1 CELLSPACING=3 CELLPADDING=3><TR><TD BGCOLOR=LightBlue><STRONG><FONT SIZE=+1>&nbsp;
-<A HREF="https://pam.int.thomsonreuters.com/PasswordVault/v10/logon">Password Vault</A>&nbsp;</FONT></STRONG></TD></TR></TABLE>
-<BR>
-<STRONG>CARI</STRONG>
+<A HREF="https://pam.int.thomsonreuters.com/PasswordVault/v10/logon">Password Vault</A>&nbsp;</FONT></STRONG></TD></TR></TABLE>  </TD><TD>
+<TABLE BORDER=1 CELLSPACING=3 CELLPADDING=3><TR><TD BGCOLOR=Orange><STRONG><FONT SIZE=+1>&nbsp;
+<A HREF="https://mfs.thomsonreuters.com/adfs/ls/IdpInitiatedSignon.aspx">CI-East AWS</A>&nbsp;</FONT></STRONG></TD></TR></TABLE> 
+</TD></TR></TABLE>
 <UL>
-<LI><A HREF="https://mfs.thomsonreuters.com/adfs/ls/IdpInitiatedSignon.aspx">CI-East AWS</A></BR>
 <LI>M0038026@MGMT.tlrg.com
 <LI>F0038026@GovMGMTThomsonReuters.com
 <LI><A HREF="https://lucid.app/lucidchart/d0696e1f-aeb6-4c32-9336-06d96a13f10c/edit?invitationId=inv_4f7fcc25-6d2d-44c6-9c00-75c59fd772d6&page=bWpRtFPSdS1I#">CARI framework LucidChart</A>
@@ -337,7 +347,8 @@ Select <I>Westlaw</i> product
 
 <BR>
 <B>
-<A HREF="https://sso.thomsonreuters.com/idp/startSSO.ping?PartnerSpId=urn%3Aamazon%3Awebservices&vsid=AWSQuickSight_Prod">QuickSight</A> &bull; 
+<!--<A HREF="https://sso.thomsonreuters.com/idp/startSSO.ping?PartnerSpId=urn%3Aamazon%3Awebservices&vsid=AWSQuickSight_Prod">QuickSight</A> &bull;--> 
+
 <A HREF="https://thehub.thomsonreuters.com/docs/DOC-3036511">Hub info</A> 
 &bull;
 <A HREF="https://trten-my.sharepoint.com/personal/rebecca_ditsch_thomsonreuters_com/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Frebecca%5Fditsch%5Fthomsonreuters%5Fcom%2FDocuments%2FRecordings%2FProduct%20Insight%20and%20Legal%20News%20%26%20Cobalt%2D20210211%5F100235%2DMeeting%20Recording%2Emp4&parent=%2Fpersonal%2Frebecca%5Fditsch%5Fthomsonreuters%5Fcom%2FDocuments%2FRecordings&originalPath=aHR0cHM6Ly90cnRlbi1teS5zaGFyZXBvaW50LmNvbS86djovZy9wZXJzb25hbC9yZWJlY2NhX2RpdHNjaF90aG9tc29ucmV1dGVyc19jb20vRVdPS1YtYWM3dHBJbVJUSURXdkFGeElCanM3enE4RUlCMkpPNkN4VEptWGxDdz9ydGltZT1VTTcyTG12UDJFZw">Video</A>
@@ -397,15 +408,17 @@ Select <I>Westlaw</i> product
 <A HREF="https://github.com/tr/cobalt_report">cobalt_report</A><BR>
 <A HREF="https://github.com/tr/cobalt_search">cobalt_search</A><BR>
 <A HREF="https://github.com/tr/cobalt_website">cobalt_website</A><BR>
+<A HREF="https://github.com/tr/cobalt_infrastructure_urlbuilder">urlbuilder</A><BR>
 <A HREF="https://github.com/tr/a208003_cobalt_event_lambdas.git">a208003_cobalt_event_lambdas</A><BR>
 <A HREF="https://github.com/tr/cobalt_static-content">cobalt_static-content</A><BR>
 <A HREF="https://github.com/tr/cobalt_static-content/blob/main/docs/CONTRIBUTING.md">SC Contr. guide</A><BR>
-</TD><TD>
+</TD><TD WIDTH=5></TD><TD>
 <A HREF="https://github.com/tr/cari-skill_ai-assisted-legal-research">ai-assisted-legal-research</A><BR>
 <A HREF="https://github.com/tr/cari-skill_guided-research">guided-research</A><BR>
 <A HREF="https://github.com/tr/cari-skill_know-your-judge">know-your-judge</A><BR>
 <A HREF="https://github.com/tr/cari-skill_spring-cross-cutting">spring-cross-cutting</A><BR>
 <A HREF="https://github.com/tr/cari_cobalt-apis">cobalt-apis</A><BR>
+<A HREF="https://github.com/tr/cari-skill_litigation-drafting">litigation-drafting</A><BR>
 <A HREF="https://github.com/tr/cari_java-shared-lib/tree/main/http-client">http-client</A>
 </TD>
 </TR></TABLE><HR>
@@ -446,11 +459,9 @@ Cobalt Product Backlog &mdash;to&mdash;> Legal Product Backlog<BR>
 <!-- ROW 1 COL 4 -->
 <TD VALIGN=TOP WIDTH=25%>
 <TABLE><TR><TD>
-<A HREF="https://thehub.thomsonreuters.com/groups/graphical-history"><B><FONT SIZE=+1><IMG title="GRAPHICAL HISTORY HUB" alt = "GRAPHICAL HISTORY HUB" style="position: relative; top: 0px; left: 20px;" HEIGHT=20 SRC="data:image/png;base64,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"></A></FONT></B>
-</TD><TD>
-<TABLE BORDER=0><TR><TD>&nbsp; &nbsp; &nbsp; &nbsp; 
-<A HREF="https://thomsonreuters.smartspacesoftware.app/deskbooking">Poppulo</A> &bull;
-<A HREF="https://delivery.zipthruordering.com/CMP/?storeid=TRAMECRO&">Lunch order</A>
+<TABLE><TR><TD>&nbsp; &nbsp; &nbsp; &nbsp; 
+<A HREF="https://trten.sharepoint.com/sites/intr-minneapolis-st-paul/Shared%20Documents/Forms/AllItems.aspx?csf=1&web=1&e=IyoEIu&CID=ee0661a9%2D56c0%2D4e67%2D8913%2Df11bd754d19b&FolderCTID=0x0120007B9C758F5BE91F47A41E108628288B99&id=%2Fsites%2Fintr%2Dminneapolis%2Dst%2Dpaul%2FShared%20Documents%2FMSP%20Lunch%20Menus">Lunch menu</A> &bull;
+<A HREF="https://delivery.zipthruordering.com/CMP/?storeid=TRAMECRO&">Order</A>
 
 </TD></TR>
 <TR><TD>&nbsp; &nbsp; &nbsp; &nbsp; 
@@ -473,7 +484,7 @@ Cobalt Product Backlog &mdash;to&mdash;> Legal Product Backlog<BR>
     <A HREF="https://thehub.thomsonreuters.com/docs/DOC-941489">Report setup</A> &bull;
     <A HREF="http://techwiki.int.thomsonreuters.com/wiki/index.php/WestlawNext_Website_Setup">Website setup</A>
 <LI><A HREF="https://github.com/tr/cobalt_static-content/blob/main/docs/CONTRIBUTING.md">Static Content Contrib. Guide</A>    
-<LI><A HREF="https://thehub.thomsonreuters.com/docs/DOC-2958942">UrlBuilder doc</A>
+<LI><A HREF="https://trten.sharepoint.com/sites/CobaltCommunityCoordinators/SitePages/Update-UrlBuilder.aspx?xsdata=MDV8MDJ8fGUwY2VjODAwYWE4ODQwNWMzNThjMDhkZTEzMDQ3MDcyfDYyY2NiODY0NmExYTRiNWQ4ZTFjMzk3ZGVjMWE4MjU4fDB8MHw2Mzg5NjkxMDY5MjA1MTkwNTJ8VW5rbm93bnxWR1ZoYlhOVFpXTjFjbWwwZVZObGNuWnBZMlY4ZXlKRFFTSTZJbFJsWVcxelgwRlVVRk5sY25acFkyVmZVMUJQVEU5R0lpd2lWaUk2SWpBdU1DNHdNREF3SWl3aVVDSTZJbGRwYmpNeUlpd2lRVTRpT2lKUGRHaGxjaUlzSWxkVUlqb3hNWDA9fDF8TDJOb1lYUnpMekU1T21NNU4yVXhZVFJtTFRSak1URXRORFE0TnkxaVlqVXhMVFZpWkRnME5qUXlZakEyWkY5bFlqRTRZbVF5WkMwMk1qVTNMVFJqWXpNdE9XWTNNeTB3WmpObFl6WTBZMlUwWm1aQWRXNXhMbWRpYkM1emNHRmpaWE12YldWemMyRm5aWE12TVRjMk1UTXhNemc1TVRZME5RPT18NGNjNDFiZjU5NDU3NDM2Mzk4OWUwOGRlMTMwNDcwNzF8YjVhYTE2MWYzMzcyNGY1ZjhhMTZkNDQzYTM2ODAzMDg%3D&sdata=ajkyZHg5R3MrZzQyUnJjb1QwWnlsdFlUY3lHbCtPMnZtbkdsemtQYjErMD0%3D&ovuser=62ccb864-6a1a-4b5d-8e1c-397dec1a8258%2Csean.sandquist%40thomsonreuters.com&OR=Teams-HL&CT=1761313912531&clickparams=eyJBcHBOYW1lIjoiVGVhbXMtRGVza3RvcCIsIkFwcFZlcnNpb24iOiI0OS8yNTEwMDIxMzgxMSIsIkhhc0ZlZGVyYXRlZFVzZXIiOmZhbHNlfQ%3D%3D">UrlBuilder doc (new)</A>
 <LI><A HREF="http://localhost:300/Report/V1/StatusCheck">Bad Report SC</A> &bull;
     <A HREF="http://10.38.xx.yyy-300.ip.int.next.demo.westlaw.com/Report/V1/StatusCheck">IP-dependent Report SC</A>
 
@@ -493,11 +504,15 @@ WestlawNext-CI-CB900006
 
 </UL><UL>
 
-<LI><A HREF="https://urldefense.com/v3/__https://quicksight.aws.amazon.com/sn/start?directory_alias=tr-legal-nonprod__;!!GFN0sa3rsbfR8OLyAw!Zm5R1v8tgq7SNjoZAu-rlRdsVJsr0GxKgA11Yx8Xma9Pr3RW7JuInrQadpd_IHCJ3r5IQQIKDdSuY_qCSC3WPXM9is2ieNn7$">QuickSight</A> (use incognito, must use <B>this</B> URL)<BR><BR>
+<LI><A HREF="https://urldefense.com/v3/__https://quicksight.aws.amazon.com/sn/start?directory_alias=tr-legal-nonprod__;!!GFN0sa3rsbfR8OLyAw!Zm5R1v8tgq7SNjoZAu-rlRdsVJsr0GxKgA11Yx8Xma9Pr3RW7JuInrQadpd_IHCJ3r5IQQIKDdSuY_qCSC3WPXM9is2ieNn7$">QuickSight</A> (use incognito, must use <B>this</B> URL,
+)
+<BR><BR>
 <LI><A HREF="https://dev.azure.com/TR-Legal-Cobalt/Legal%20Cobalt%20Backlog/_boards/board/t/Westlaw%20US%20-%20Dahl/Stories">All Dahl stories</A>
+<LI><A HREF="https://dev.azure.com/TR-Legal-Cobalt/Legal%20Cobalt%20Backlog/_backlogs/backlog/Westlaw%20US%20-%20Stephan/Features?showParents=true">All Stephan stories</A>
 <LI><A HREF="https://dev.azure.com/TR-Legal-Cobalt/Legal%20Cobalt%20Backlog/_workitems/assignedtome/">Legal Cobalt Backlog&mdash;Sean's OPEN</A>
 <LI><A HREF="https://dev.azure.com/TR-Legal-Cobalt/Legal%20Cobalt%20Backlog/_queries/query/60800a8a-6e69-43ea-9fb1-bb501c7df40f/">
 Know Your Judge Epic</A>
+<LI><A HREF="https://dev.azure.com/TR-Legal-Cobalt/Legal%20Cobalt%20Backlog/_backlogs/backlog/Litigation%20Drafting/Features">Lit. Drafting Features</A>
 <LI><A HREF="https://dev.azure.com/TR-Legal-Cobalt/Legal%20Cobalt%20Backlog/_sprints/taskboard/WLUS/Legal%20Cobalt%20Backlog">WLUS</A>
 <LI><A HREF="https://dev.azure.com/TR-Legal-Cobalt/Legal%20Cobalt%20Backlog/_sprints/taskboard/WLUS%20AAR/Legal%20Cobalt%20Backlog">WLUS AAR</A>
 <LI><A HREF="https://dev.azure.com/TR-Legal-Cobalt/Legal%20Cobalt%20Backlog/_sprints/taskboard/WLUS%20ResearchSkills/Legal%20Cobalt%20Backlog">WLUS ResearchSkills</A>
